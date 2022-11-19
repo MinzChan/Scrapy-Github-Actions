@@ -5,7 +5,7 @@ name: Cron Job for scrapy
 
 on:
   schedule:
-    - cron: "* * * * *"
+    - cron: "* /45 * * *"
     
 jobs:
   cron:
