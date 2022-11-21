@@ -5,8 +5,7 @@ name: Cron Job for scrapy
 
 on:
   schedule:
-    # - cron: "30 7 * * *"
-    - cron : "45 * * * *"
+    - cron: "30 7 * * *"
 
 env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
