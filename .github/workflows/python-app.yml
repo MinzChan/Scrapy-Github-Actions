@@ -7,6 +7,9 @@ on:
   schedule:
     # - cron: "30 7 * * *"
     - cron : "45 * * * *"
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     
 jobs:
   cron:
@@ -23,3 +26,20 @@ jobs:
       run: rm books.csv  
     - name: Run the spider
       run: scrapy crawl books -o books.csv
+    - name: Create HTML file for CSV File
+      run: python script.py  
+    - name: Send mail
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        secure: true
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: Books scraped results
+        to: mohd.abazeemabazeem@gmail.com
+        from: dossierbootcamp57@gmail.com
+        body: Books job of ${{github.repository}} completed successfully!
+        html_body: file://books.html
+        convert_markdown: true
+        ignore_cert: true
