@@ -23,5 +23,5 @@ jobs:
         password: ${{secrets.MAIL_PASSWORD}}
         subject: Github Actions job result
         to: minzchan@outlook.com
-        from: ${{secrets.MAIL_USERNAME}}
+        from: minzchan@qq.com
         body: ${{github.repository}} push log
