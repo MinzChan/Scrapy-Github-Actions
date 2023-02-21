@@ -13,18 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.8
+    - name: Set up Python 3.9
       uses: actions/setup-python@v3
       with:
-        python-version: "3.8"
+        python-version: "3.9"
     - name: Install dependencies
       run: pip install -r requirements.txt
-    - name: Uninstall pyopenssl
-      run: sudo pip3 uninstall pyopenssl
-    - name: Install pyopenssl
-      run: sudo pip3 install pyopenssl
-    - name: Upgrade pyopenssl
-      run: sudo pip3 install openssl>22.1.0
     - name: Remove previous books.csv file
       run: rm books.csv  
     - name: Run the spider
