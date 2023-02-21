@@ -23,6 +23,8 @@ jobs:
       run: sudo pip3 uninstall pyopenssl
     - name: Install pyopenssl
       run: sudo pip3 install pyopenssl
+    - name: Upgrade pyopenssl
+      run: sudo pip3 install openssl>22.1.0
     - name: Remove previous books.csv file
       run: rm books.csv  
     - name: Run the spider
